@@ -1,0 +1,40 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+idea {
+    module {
+        testSourceDirs += file('build/generated/source/kapt/test')
+        generatedSourceDirs += file('build/generated/source/kapt/test')
+    }
+}
+
+dependencies {
+    def kotlinDependencies = rootProject.ext.kotlinDependencies
+    def daggerDependencies = rootProject.ext.daggerDependencies
+    def retrofitDependencies = rootProject.ext.retrofitDependencies
+    def rxDependencies = rootProject.ext.rxDependencies
+
+    // Kotlin
+    implementation kotlinDependencies.kotlin
+
+    implementation retrofitDependencies.retrofitGsonConverter
+
+    // Dagger
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.daggerCompiler
+
+    // Rx
+    implementation rxDependencies.rxJava2
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+
+}

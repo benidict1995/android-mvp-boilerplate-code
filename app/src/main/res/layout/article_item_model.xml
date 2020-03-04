@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/tvTitle"
+        android:text="Brian Barrett"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/imgIcon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        android:id="@+id/tvDescription"
+        android:textSize="14sp"
+        android:ellipsize="end"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:maxLines="2"
+        app:layout_constraintEnd_toStartOf="@+id/imgIcon"
+        android:text="Mac malware, a Bitcoin mixer, and more of the week's top security news."
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/imgIcon"
+        android:scaleType="centerCrop"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
